@@ -35,9 +35,20 @@ public class MyAccountPage extends NavigationBar {
         List<WebElement> registrationEmailField = driver.findElements(byRegistrationEmailField);
         List<WebElement> registrationPasswordField = driver.findElements(byRegistrationPasswordField);
         List<WebElement> registerButtonElements = driver.findElements(byRegisterButton);
+        System.out.println(isElementPresent(byRegisterButton));
         return !(registrationEmailField.isEmpty() &&
                 registrationPasswordField.isEmpty() &&
                 registerButtonElements.isEmpty());
+
+    }
+
+    private boolean isElementPresent(By locator) {
+        try {
+            driver.findElement(locator);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
     public boolean isAccountAlreadyRegisteredErrorPresent() {
@@ -46,9 +57,5 @@ public class MyAccountPage extends NavigationBar {
 
     public void registerButtonClick() {
         driver.findElement(byRegisterButton).click();
-    }
-
-    public WebElement getHeaderWithText(String text) {
-        return driver.findElement(Locators.headerText(text));
     }
 }

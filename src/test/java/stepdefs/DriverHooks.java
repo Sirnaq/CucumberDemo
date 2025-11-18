@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.time.Duration;
 import java.util.Map;
 
 public class DriverHooks {
@@ -27,7 +26,6 @@ public class DriverHooks {
         options.setCapability("goog:loggingPrefs",
                 Map.of("browser", "OFF", "driver", "OFF"));
         WebDriver webDriver = new ChromeDriver(options);
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         driver.set(webDriver);
     }
 

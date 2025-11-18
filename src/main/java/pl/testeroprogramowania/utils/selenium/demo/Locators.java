@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class Locators {
 
-    public static By buttonText(String text){
+    public static By buttonText(String text) {
         return By.xpath("//button[normalize-space() = '%s']".formatted(text));
     }
 
@@ -16,5 +16,6 @@ public class Locators {
         return By.xpath("//*[normalize-space() = '%s']".formatted(text));
     }
 
-    private Locators(){}
+    private Locators() {
+    }
 }
